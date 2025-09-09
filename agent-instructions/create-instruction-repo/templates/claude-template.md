@@ -8,12 +8,33 @@
 
 None currently applied. When instructions are applied to this repository, they will be documented here with exact URLs used.
 
+### Format for Applied Instructions
+
+Each applied instruction should be documented with its own section:
+
+```markdown
+### [Instruction Name] - [Date Applied]
+
+**URL**: [exact versioned URL used]
+**Purpose**: [brief description of what this instruction does]
+**Usage**: [how to use the features/tools added by this instruction]
+**Notes**: [any important notes about the implementation]
+```
+
 ## Update Instructions
 
-When the user requests to update an applied instruction:
-1. The user may provide a new URL, version tag, or commit hash to specify the target version
-2. If no version is specified, check for the latest release in the instruction's repository
-3. Follow the new instruction - it will contain the update process
+To update an applied instruction:
+
+1. **Specify Version**: Provide a new versioned URL (tag or commit hash) for the instruction you want to update
+2. **Git State**: Ensure repository is in clean state - create new branch if on main
+3. **Apply Update**: Run the new instruction version - it will handle updating from the previous version
+4. **Update Documentation**: Update the instruction's section in this file with new URL, date, and any changes
+5. **Verify**: Test that the update worked correctly and didn't break existing functionality
+
+**Example Update Command**:
+```
+Apply instruction: https://github.com/user/instruction-repo/blob/v2.1.0/instruction.md
+```
 
 ## Rules and Guidelines
 
