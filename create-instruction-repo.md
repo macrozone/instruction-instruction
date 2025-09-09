@@ -1,8 +1,6 @@
 # Create Instruction Repository
 
-**Source**: https://github.com/panter/instruction-instruction/blob/v1.0.0/create-instruction-repo.md  
-**Framework**: Instruction-Instruction v1.0.0  
-**Last Updated**: 2025-09-02
+**Source**: https://github.com/panter/instruction-instruction/blob/v1.0.0/create-instruction-repo.md
 
 ## Description
 
@@ -41,9 +39,15 @@ The AI agent will:
 
 ### 2. Documentation Updates
 
-Update or create the agent configuration file in your target project:
+Create or update `CLAUDE.md` in your target project:
 
 ```markdown
+# Claude Configuration
+
+## Project Overview
+
+[Brief description of what this repository does]
+
 ## Instructions Applied
 
 - **Create Instruction Repository**: Applied https://github.com/panter/instruction-instruction/blob/v1.0.0/create-instruction-repo.md on [DATE]
@@ -51,6 +55,10 @@ Update or create the agent configuration file in your target project:
   - **What it does**: Creates instruction templates, README templates, and folder structure for instruction repositories
   - **Files created**: instruction.md, setup.md, codemod.md templates (or .instructions/ folder for existing repos)
   - **Usage**: Enables creation of instruction files that AI agents can execute to modify codebases consistently
+
+## Rules and Guidelines
+
+[Add any project-specific rules for AI agents here]
 ```
 
 ### 2. Setup Steps
@@ -150,9 +158,7 @@ This directory contains instruction files that can be applied to enhance or modi
 ```markdown
 # [Instruction Title]
 
-**Version**: X.Y.Z
-**Framework**: Instruction-Instruction v1.0.0
-**Last Updated**: YYYY-MM-DD
+**Source**: [VERSIONED-URL]
 
 ## Description
 
@@ -168,7 +174,7 @@ Clear description of what this instruction accomplishes.
 
 ### 1. Documentation Updates
 
-Update or create agent configuration file (claude.md, agent.md, etc.):
+Update or create `CLAUDE.md`:
 
 ```markdown
 ## Instructions Applied
