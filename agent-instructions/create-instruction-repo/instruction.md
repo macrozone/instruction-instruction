@@ -89,6 +89,29 @@ my-library/
 3. Fill in the actual instruction steps, dependencies, and code transformations
 4. Add specific prerequisites and examples for your instruction
 
+#### 3.3 Important Considerations for Your Instruction
+
+When writing your instruction, pay attention to:
+
+**Package Manager Detection**: If your instruction installs dependencies, detect the appropriate package manager:
+- Check for `package-lock.json` (npm), `yarn.lock` (yarn), `pnpm-lock.yaml` (pnpm), etc.
+- Use the detected package manager in your install commands
+
+**Framework/Tool Detection**: If your instruction is framework-specific:
+- Check `package.json` dependencies for framework presence
+- Look for configuration files (e.g., `tsconfig.json`, `.eslintrc`, etc.)
+- Adapt instructions based on what's detected
+
+**File System Conventions**: Respect existing project structure:
+- Check existing folder patterns before creating new ones
+- Follow naming conventions already used in the project
+- Don't assume specific folder structures
+
+**Conditional Logic**: Make instructions adaptive:
+- Skip steps that don't apply to the current project setup
+- Provide alternative approaches for different configurations
+- Handle edge cases gracefully
+
 ### 4. Codemod Instructions
 
 Based on your specific instruction needs:

@@ -31,7 +31,16 @@ The AI agent will:
 - Create feature branch if currently on `main` (e.g., `instruction/[repo-name]-[timestamp]`)
 - Reject processing if uncommitted changes exist
 
-### 2. Documentation Updates
+### 2. Check for Existing Application
+
+Check if this instruction has already been applied:
+
+1. Look for this instruction in `CLAUDE.md` under "Instructions Applied"
+2. If found and user hasn't explicitly requested an update, inform user that instruction is already applied
+3. If user requests update or version differs, follow the update process in [update.md](./update.md)
+4. If not found, proceed with fresh application
+
+### 3. Documentation Updates
 
 Update or create `CLAUDE.md`:
 
@@ -46,9 +55,9 @@ Update or create `CLAUDE.md`:
   - **Dependencies**: [New dependencies or tools required]
 ```
 
-### 3. Setup Steps
+### 4. Setup Steps
 
-#### 3.1 [Setup Step Name]
+#### 4.1 [Setup Step Name]
 
 Describe what this step does and why it's needed.
 
@@ -58,11 +67,11 @@ Describe what this step does and why it's needed.
 - Setting up folder structure
 - Initializing tools
 
-#### 3.2 [Another Setup Step]
+#### 4.2 [Another Setup Step]
 
 [Description of step]
 
-### 4. Commit Setup Changes
+### 5. Commit Setup Changes
 
 After completing all setup steps, commit the changes following the repository's commit message conventions:
 
@@ -71,11 +80,11 @@ git add .
 git commit -m "[Commit message following repo conventions - typically describing the setup changes made]"
 ```
 
-### 5. Conditional Steps
+### 6. Conditional Steps
 
 (Optional) Steps that only apply under certain conditions:
 
-#### 5.1 If [Condition] is detected
+#### 6.1 If [Condition] is detected
 
 **Detection**: [How to detect this condition]
 **Action**: [What to do when condition is met]
@@ -85,7 +94,7 @@ git commit -m "[Commit message following repo conventions - typically describing
 - Checking for existing configuration files
 - Identifying project types or patterns
 
-### 6. User Confirmation for Codemod
+### 7. User Confirmation for Codemod
 
 Ask the user for confirmation before proceeding with code transformations:
 
@@ -100,7 +109,7 @@ This will:
 Reply 'yes' to proceed or 'no' to stop here.
 ```
 
-### 7. Codemod Instructions
+### 8. Codemod Instructions
 
 Describe code transformations needed.
 
@@ -123,7 +132,7 @@ For complex transformations, reference a separate `codemod.md` file:
 
 **Files to Target**: `[glob pattern for files to modify]`
 
-### 8. Verification Steps
+### 9. Verification Steps
 
 After applying changes, verify the instruction worked correctly:
 
