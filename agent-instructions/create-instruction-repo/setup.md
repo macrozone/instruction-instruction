@@ -18,7 +18,7 @@ Create these files in the root:
 
 Create instruction files in a dedicated folder to avoid conflicts:
 
-- `agent-instructions/README.md` - Description of available instructions (use [templates/instructions-readme-template.md](./templates/instructions-readme-template.md))
+- `agent-instructions/README.md` - Description of available instructions
 - `agent-instructions/[feature-name]/instruction.md` - Main instruction file (use [templates/instruction-template.md](./templates/instruction-template.md))
 - `agent-instructions/[feature-name]/setup.md` - Setup instructions (use [templates/setup-template.md](./templates/setup-template.md))
 - `agent-instructions/[feature-name]/codemod.md` - Codemod instructions (use [templates/codemod-template.md](./templates/codemod-template.md))
