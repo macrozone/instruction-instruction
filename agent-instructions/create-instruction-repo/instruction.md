@@ -7,6 +7,7 @@
 This instruction guides you through creating a standardized instruction repository that AI coding agents can execute to modify codebases consistently. The resulting repository will follow the Instruction-Instruction framework format.
 
 **Target Use Cases:**
+
 - **New repositories**: Create dedicated instruction repositories from scratch
 - **Existing repositories**: Add instruction files to existing projects (libraries, applications) without overwriting existing content
 
@@ -16,19 +17,12 @@ This instruction guides you through creating a standardized instruction reposito
 - Basic understanding of the target technology/pattern you want to instruct
 - Git repository in clean state
 
-## Dependencies
-
-None - this instruction is self-contained.
-
-## Dry Run Support
-
-This instruction supports dry-run mode. Users can preview changes by requesting: "Show me what this instruction would do" before applying.
-
 ## Instruction Steps
 
 ### 1. Git State Verification
 
-The AI agent will:
+You will:
+
 - Verify repository is in clean state (no uncommitted changes)
 - Create feature branch if currently on `main` (e.g., `instruction/[repo-name]-[timestamp]`)
 - Reject processing if uncommitted changes exist
@@ -62,6 +56,7 @@ Create or update `CLAUDE.md` using the template at [templates/claude-template.md
 
 **For new repositories** or **dedicated instruction repositories**:
 Create these files in the root:
+
 - `README.md` - Repository description and usage (use [templates/readme-template.md](./templates/readme-template.md))
 - `agent-instructions/[instruction-name]/instruction.md` - The main executable instruction file (use [templates/instruction-template.md](./templates/instruction-template.md))
 - `agent-instructions/[instruction-name]/setup.md` - Detailed setup instructions (optional, for complex setups)
@@ -69,12 +64,14 @@ Create these files in the root:
 
 **For existing repositories** (libraries, applications, etc.):
 Create instruction files in a dedicated folder to avoid conflicts:
+
 - `agent-instructions/README.md` - Description of available instructions (use [templates/instructions-readme-template.md](./templates/instructions-readme-template.md))
 - `agent-instructions/[feature-name]/instruction.md` - Main instruction file (use [templates/instruction-template.md](./templates/instruction-template.md))
 - `agent-instructions/[feature-name]/setup.md` - Setup instructions (optional)
 - `agent-instructions/[feature-name]/codemod.md` - Codemod instructions (optional)
 
 Example for existing repository:
+
 ```
 my-library/
 ├── src/
@@ -97,23 +94,32 @@ my-library/
 
 #### 4.3 Important Considerations for Your Instruction
 
-When writing your instruction, pay attention to:
+When writing an instruction, pay attention to:
+
+**General Guidelines**: Instructions are written for AI coding agents, so they should be:
+- Clear and unambiguous in their requirements
+- Brief and direct without unnecessary explanations
+- Actionable with specific steps the agent can execute
 
 **Package Manager Detection**: If your instruction installs dependencies, detect the appropriate package manager:
+
 - Check for `package-lock.json` (npm), `yarn.lock` (yarn), `pnpm-lock.yaml` (pnpm), etc.
 - Use the detected package manager in your install commands
 
 **Framework/Tool Detection**: If your instruction is framework-specific:
+
 - Check `package.json` dependencies for framework presence
 - Look for configuration files (e.g., `tsconfig.json`, `.eslintrc`, etc.)
 - Adapt instructions based on what's detected
 
 **File System Conventions**: Respect existing project structure:
+
 - Check existing folder patterns before creating new ones
 - Follow naming conventions already used in the project
 - Don't assume specific folder structures
 
 **Conditional Logic**: Make instructions adaptive:
+
 - Skip steps that don't apply to the current project setup
 - Provide alternative approaches for different configurations
 - Handle edge cases gracefully
@@ -132,7 +138,7 @@ git commit -m "[Commit message following repo conventions - typically describing
 Ask the user for confirmation before proceeding with code transformations:
 
 ```
-The setup phase is complete. Would you like me to proceed with applying code transformations now? 
+The setup phase is complete. Would you like me to proceed with applying code transformations now?
 
 This will:
 - [List specific code changes that will be made]
@@ -147,37 +153,33 @@ Reply 'yes' to proceed or 'no' to stop here.
 Based on your specific instruction needs:
 
 #### 7.1 Create Instruction Content
+
 - Define the specific changes your instruction should make
 - Identify file patterns and code transformations needed
 - Specify exact dependency versions and setup steps
 
 #### 7.2 Add Examples
+
 Create `examples/` directory with:
+
 - `before/` - Code samples before applying instruction
 - `after/` - Code samples after applying instruction
 
 #### 7.3 Create Helper Scripts (if needed)
+
 Add any setup scripts or codemods to `scripts/` directory.
-
-### 8. Verification Steps
-
-Test your instruction:
-
-1. Create a test project
-2. Apply your instruction manually
-3. Verify all steps work as expected
-4. Document any edge cases or prerequisites
-5. Tag your repository with semantic versions (v1.0.0, v1.1.0, etc.) for reproducible URLs
 
 ## Examples
 
 ### Before (Empty Repository)
+
 ```
 my-instruction-repo/
 └── README.md (basic)
 ```
 
 ### After (Complete Instruction Repository)
+
 ```
 my-instruction-repo/
 ├── README.md
@@ -202,7 +204,7 @@ To undo these changes:
 ## Notes
 
 - Tag your repository with semantic versions (v1.0.0, v1.1.0, etc.) for reproducible URLs
-- Test instructions on clean codebases before sharing  
+- Test instructions on clean codebases before sharing
 - Write AI-interpretable instructions rather than executable scripts
 - Keep dependencies and versions explicit
 - Provide clear rollback procedures for breaking changes
@@ -211,10 +213,13 @@ To undo these changes:
 ## Common Patterns
 
 ### Library Installation Instruction
+
 Focus on: dependencies, configuration files, usage patterns, type definitions
 
-### Architecture Pattern Instruction  
+### Architecture Pattern Instruction
+
 Focus on: folder structure, file templates, import patterns, naming conventions
 
 ### Migration Instruction
+
 Focus on: step-by-step replacement, codemods, dependency changes, cleanup steps

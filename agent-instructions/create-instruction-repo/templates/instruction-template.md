@@ -15,12 +15,11 @@ List what must be in place before this instruction can be applied:
 
 ## Dependencies
 
-(Optional) Other instructions that must be applied before this one:
+(Optional - only include this section if there are dependencies)
+
+Other instructions that must be applied before this one:
 - **[Instruction Name]**: [URL]
 
-## Dry Run Support
-
-This instruction supports dry-run mode. Users can preview changes by requesting: "Show me what this instruction would do" before applying.
 
 ## Instruction Steps
 
@@ -132,14 +131,6 @@ For complex transformations, reference a separate `codemod.md` file:
 
 **Files to Target**: `[glob pattern for files to modify]`
 
-### 9. Verification Steps
-
-After applying changes, verify the instruction worked correctly:
-
-1. [Verification step 1]
-2. [Verification step 2]
-3. [Build/test commands to run]
-4. Confirm git branch was created if started from main
 
 ## Examples
 
