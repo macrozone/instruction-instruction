@@ -13,22 +13,11 @@ List what must be in place before this instruction can be applied:
 - [Prerequisite 2] 
 - [Required versions/tools]
 
-## Dependencies
-
-(Optional - only include this section if there are dependencies)
-
-Other instructions that must be applied before this one:
-- **[Instruction Name]**: [URL]
-
-
 ## Instruction Steps
 
 ### 1. Git State Verification
 
-The AI agent will:
-- Verify repository is in clean state (no uncommitted changes)
-- Create feature branch if currently on `main` (e.g., `instruction/[repo-name]-[timestamp]`)
-- Reject processing if uncommitted changes exist
+Check that the repository is in a clean state (no uncommitted changes). If on `main` branch, create a feature branch (e.g., `instruction/[repo-name]-[timestamp]`). If there are uncommitted changes, reject processing and ask user to commit or stash them first.
 
 ### 2. Check for Existing Application
 
@@ -56,19 +45,7 @@ Update or create `CLAUDE.md`:
 
 ### 4. Setup Steps
 
-#### 4.1 [Setup Step Name]
-
-Describe what this step does and why it's needed.
-
-*Example setup steps might include:*
-- Installing dependencies
-- Creating configuration files
-- Setting up folder structure
-- Initializing tools
-
-#### 4.2 [Another Setup Step]
-
-[Description of step]
+**See**: [setup.md](./setup.md) for detailed setup instructions.
 
 ### 5. Commit Setup Changes
 
@@ -79,21 +56,7 @@ git add .
 git commit -m "[Commit message following repo conventions - typically describing the setup changes made]"
 ```
 
-### 6. Conditional Steps
-
-(Optional) Steps that only apply under certain conditions:
-
-#### 6.1 If [Condition] is detected
-
-**Detection**: [How to detect this condition]
-**Action**: [What to do when condition is met]
-
-*Example conditions might include:*
-- Detecting specific frameworks or libraries
-- Checking for existing configuration files
-- Identifying project types or patterns
-
-### 7. User Confirmation for Codemod
+### 6. User Confirmation for Codemod
 
 Ask the user for confirmation before proceeding with code transformations:
 
@@ -108,28 +71,9 @@ This will:
 Reply 'yes' to proceed or 'no' to stop here.
 ```
 
-### 8. Codemod Instructions
+### 7. Codemod Instructions
 
-Describe code transformations needed.
-
-For complex transformations, reference a separate `codemod.md` file:
 **See**: [codemod.md](./codemod.md) for detailed transformation instructions.
-
-#### 5.1 [Transformation Name]
-
-**What it does**: [Description of the transformation]
-
-**Pattern to Find**:
-```[language]
-[code pattern to find]
-```
-
-**Replace With**:
-```[language]
-[replacement code pattern]
-```
-
-**Files to Target**: `[glob pattern for files to modify]`
 
 
 ## Examples
@@ -146,10 +90,7 @@ For complex transformations, reference a separate `codemod.md` file:
 
 ## Rollback Instructions
 
-To undo these changes:
-
-1. [Rollback step 1]
-2. [Rollback step 2]
+**See**: [rollback.md](./rollback.md) for instructions on how to undo these changes.
 
 ## Notes
 
