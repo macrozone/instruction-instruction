@@ -12,7 +12,6 @@ Create these files in the root:
 - `agent-instructions/[instruction-name]/instruction.md` - The main executable instruction file (use [templates/instruction-template.md](./templates/instruction-template.md))
 - `agent-instructions/[instruction-name]/setup.md` - Detailed setup instructions (use [templates/setup-template.md](./templates/setup-template.md))
 - `agent-instructions/[instruction-name]/codemod.md` - Detailed code transformation instructions (use [templates/codemod-template.md](./templates/codemod-template.md))
-- `agent-instructions/[instruction-name]/rollback.md` - Instructions for undoing changes (use [templates/rollback-template.md](./templates/rollback-template.md))
 
 ### 1.2 For Existing Repositories
 
@@ -22,7 +21,6 @@ Create instruction files in a dedicated folder to avoid conflicts:
 - `agent-instructions/[feature-name]/instruction.md` - Main instruction file (use [templates/instruction-template.md](./templates/instruction-template.md))
 - `agent-instructions/[feature-name]/setup.md` - Setup instructions (use [templates/setup-template.md](./templates/setup-template.md))
 - `agent-instructions/[feature-name]/codemod.md` - Codemod instructions (use [templates/codemod-template.md](./templates/codemod-template.md))
-- `agent-instructions/[feature-name]/rollback.md` - Instructions for undoing changes (use [templates/rollback-template.md](./templates/rollback-template.md))
 
 Example for existing repository:
 ```
@@ -36,7 +34,6 @@ my-library/
         ├── instruction.md
         ├── setup.md
         ├── codemod.md
-        └── rollback.md
 ```
 
 ## 2. Customize Templates

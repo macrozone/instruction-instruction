@@ -101,9 +101,6 @@ my-instruction-repo/
         └── examples/
 ```
 
-## Rollback Instructions
-
-**See**: [rollback.md](./rollback.md) for instructions on how to undo these changes.
 
 ## Notes
 
@@ -111,7 +108,6 @@ my-instruction-repo/
 - Test instructions on clean codebases before sharing
 - Write AI-interpretable instructions rather than executable scripts
 - Keep dependencies and versions explicit
-- Provide clear rollback procedures for breaking changes
 - Consider backward compatibility when updating instructions
 
 ## Common Patterns

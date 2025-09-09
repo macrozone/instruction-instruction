@@ -51,7 +51,7 @@ None currently applied. When instructions are applied to this repository, they w
    - Apply only relevant conditional instructions
    - Skip steps that don't apply to the current project
 
-8. **Maintain Traceability**: Document what was changed, when, and why to enable future updates and rollbacks. Include comprehensive details about each instruction's purpose and effects so future agents can understand and potentially update or rollback changes
+8. **Maintain Traceability**: Document what was changed, when, and why to enable future updates. Include comprehensive details about each instruction's purpose and effects so future agents can understand and potentially update changes
 
 ### When Creating Instruction Files
 
@@ -72,5 +72,5 @@ None currently applied. When instructions are applied to this repository, they w
 
 - All instruction files should be tested against real codebases
 - Use clear, actionable language that AI agents can interpret and execute
-- Include error handling and rollback procedures where applicable
+- Include error handling where applicable
 - Break complex instructions into modular files (`setup.md`, `codemod.md`) when needed

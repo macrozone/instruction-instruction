@@ -88,9 +88,6 @@ Reply 'yes' to proceed or 'no' to stop here.
 [example of code/structure after applying instruction]
 ```
 
-## Rollback Instructions
-
-**See**: [rollback.md](./rollback.md) for instructions on how to undo these changes.
 
 ## Notes
 
