@@ -18,10 +18,7 @@ This instruction guides you through creating a standardized instruction reposito
 
 ## Dependencies
 
-(Optional) List other instructions that must be applied before this one:
-
-- **Base Configuration**: https://github.com/team/base-config/blob/v1.0.0/instruction.md
-- **TypeScript Setup**: https://github.com/team/typescript-config/blob/v2.1.0/instruction.md
+None - this instruction is self-contained.
 
 ## Dry Run Support
 
@@ -36,7 +33,16 @@ The AI agent will:
 - Create feature branch if currently on `main` (e.g., `instruction/[repo-name]-[timestamp]`)
 - Reject processing if uncommitted changes exist
 
-### 2. Documentation Updates
+### 2. Check for Existing Application
+
+Check if this instruction has already been applied:
+
+1. Look for this instruction in `CLAUDE.md` under "Instructions Applied"
+2. If found and user hasn't explicitly requested an update, inform user that instruction is already applied
+3. If user requests update or version differs, follow the update process in [update.md](./update.md)
+4. If not found, proceed with fresh application
+
+### 3. Documentation Updates
 
 Create or update `CLAUDE.md` using the template at [templates/claude-template.md](./templates/claude-template.md) and add:
 
@@ -50,9 +56,9 @@ Create or update `CLAUDE.md` using the template at [templates/claude-template.md
   - **Usage**: Enables creation of instruction files that AI agents can execute to modify codebases consistently
 ```
 
-### 3. Setup Steps
+### 4. Setup Steps
 
-#### 3.1 Create Repository Structure
+#### 4.1 Create Repository Structure
 
 **For new repositories** or **dedicated instruction repositories**:
 Create these files in the root:
@@ -82,14 +88,14 @@ my-library/
         └── codemod.md
 ```
 
-#### 3.2 Customize Templates
+#### 4.2 Customize Templates
 
 1. Copy the appropriate template files from this instruction's `templates/` directory
 2. Replace all placeholder text (`[Instruction Name]`, `[username]`, `[repo]`, etc.) with your specific values
 3. Fill in the actual instruction steps, dependencies, and code transformations
 4. Add specific prerequisites and examples for your instruction
 
-#### 3.3 Important Considerations for Your Instruction
+#### 4.3 Important Considerations for Your Instruction
 
 When writing your instruction, pay attention to:
 
@@ -112,24 +118,48 @@ When writing your instruction, pay attention to:
 - Provide alternative approaches for different configurations
 - Handle edge cases gracefully
 
-### 4. Codemod Instructions
+### 5. Commit Setup Changes
+
+After completing all setup steps, commit the changes following the repository's commit message conventions:
+
+```bash
+git add .
+git commit -m "[Commit message following repo conventions - typically describing the setup changes made]"
+```
+
+### 6. User Confirmation for Codemod
+
+Ask the user for confirmation before proceeding with code transformations:
+
+```
+The setup phase is complete. Would you like me to proceed with applying code transformations now? 
+
+This will:
+- [List specific code changes that will be made]
+- [Files that will be modified]
+- [Any potentially destructive changes]
+
+Reply 'yes' to proceed or 'no' to stop here.
+```
+
+### 7. Codemod Instructions
 
 Based on your specific instruction needs:
 
-#### 4.1 Create Instruction Content
+#### 7.1 Create Instruction Content
 - Define the specific changes your instruction should make
 - Identify file patterns and code transformations needed
 - Specify exact dependency versions and setup steps
 
-#### 4.2 Add Examples
+#### 7.2 Add Examples
 Create `examples/` directory with:
 - `before/` - Code samples before applying instruction
 - `after/` - Code samples after applying instruction
 
-#### 4.3 Create Helper Scripts (if needed)
+#### 7.3 Create Helper Scripts (if needed)
 Add any setup scripts or codemods to `scripts/` directory.
 
-### 5. Verification Steps
+### 8. Verification Steps
 
 Test your instruction:
 
@@ -159,6 +189,15 @@ my-instruction-repo/
         ├── templates/
         └── examples/
 ```
+
+## Rollback Instructions
+
+To undo these changes:
+
+1. Delete the created `agent-instructions/` folder and its contents
+2. Remove the instruction entry from `CLAUDE.md`
+3. If repository was created specifically for this instruction, consider removing the entire repository
+4. Revert any template customizations made to existing files
 
 ## Notes
 

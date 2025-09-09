@@ -66,6 +66,7 @@ None currently applied. When instructions are applied to this repository, they w
 - Tag releases when making breaking changes to instruction formats
 - Maintain backward compatibility when possible
 - Document breaking changes in release notes
+- **Always verify our own instruction files against our templates**: Before publishing, ensure all instruction files follow the structure and requirements defined in our own templates
 
 ## Development Guidelines
 
